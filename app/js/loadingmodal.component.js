@@ -1,4 +1,4 @@
-System.register(['angular2/core', './loadingmodal.component'], function(exports_1, context_1) {
+System.register(['angular2/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,32 +10,28 @@ System.register(['angular2/core', './loadingmodal.component'], function(exports_
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, loadingmodal_component_1;
-    var AppComponent;
+    var core_1;
+    var LoadingModalComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
-            },
-            function (loadingmodal_component_1_1) {
-                loadingmodal_component_1 = loadingmodal_component_1_1;
             }],
         execute: function() {
-            AppComponent = (function () {
-                function AppComponent() {
+            LoadingModalComponent = (function () {
+                function LoadingModalComponent() {
                 }
-                AppComponent = __decorate([
+                LoadingModalComponent = __decorate([
                     core_1.Component({
-                        selector: 'my-app',
-                        template: '<h1>Angular 2 Template</h1><loadingmodal></loadingmodal>',
-                        directives: [loadingmodal_component_1.LoadingModalComponent]
+                        selector: 'loadingmodal',
+                        template: '<h2>There will be a modal here.</h2>'
                     }), 
                     __metadata('design:paramtypes', [])
-                ], AppComponent);
-                return AppComponent;
+                ], LoadingModalComponent);
+                return LoadingModalComponent;
             }());
-            exports_1("AppComponent", AppComponent);
+            exports_1("LoadingModalComponent", LoadingModalComponent);
         }
     }
 });
-//# sourceMappingURL=app.component.js.map
+//# sourceMappingURL=loadingmodal.component.js.map
