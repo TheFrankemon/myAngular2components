@@ -6,18 +6,21 @@ import { Injectable, ViewContainerRef } from '@angular/core';
 @Injectable()
 export class DialogsService {
 
-    constructor(private dialog: MdDialog) { }
+	constructor(private dialog: MdDialog) {
+		
+	}
 
-    public confirm(title: string, viewContainerRef: ViewContainerRef): Observable<boolean> {
+	public confirm(title: string, viewContainerRef: ViewContainerRef): Observable<boolean> {
+		let dialogRef: MdDialogRef<ConfirmDialog>;
+		let config = new MdDialogConfig();
+		config.viewContainerRef = viewContainerRef;
+		config.width = "60%";
+		//config.height = "40%";
+		config.disableClose = true;
 
-        let dialogRef: MdDialogRef<ConfirmDialog>;
-        let config = new MdDialogConfig();
-        config.viewContainerRef = viewContainerRef;
+		dialogRef = this.dialog.open(ConfirmDialog, config);
+		dialogRef.componentInstance.title = title;
 
-        dialogRef = this.dialog.open(ConfirmDialog, config);
-
-        dialogRef.componentInstance.title = title;
-
-        return dialogRef.afterClosed();
-    }
+		return dialogRef.afterClosed();
+	}
 }

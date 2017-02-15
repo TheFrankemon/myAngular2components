@@ -8,15 +8,15 @@ import { AppModule } from './app/app.module';
 import { AppComponent } from './app/app.component';
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    MaterialModule.forRoot(),
-    DialogsModule,
-  ],
+	imports: [
+		BrowserModule,
+		MaterialModule.forRoot(),
+		DialogsModule,
+	],
 
-  declarations: [ AppComponent ],
-  bootstrap: [ AppComponent ],
-  providers: []
+	declarations: [ AppComponent ],
+	bootstrap: [ AppComponent ],
+	providers: []
 })
 export class exampleAppModule {}
 
