@@ -1,53 +1,32 @@
 import { Component, ViewContainerRef } from '@angular/core';
-import { Overlay } from 'angular2-modal';
-import { Modal } from 'angular2-modal/plugins/bootstrap';
+import { DialogsService } from './confirm-dialog/dialogs.service';
 
 @Component({
 	selector: 'my-app',
 	template: `
-		<h1>Hello {{name}}</h1>
-		<button (click)="showBasic()">Basic modal</button>
-		<button (click)="showModded()">Modded modal</button>
+		<md-toolbar color="primary">
+			<h2>Hello {{name}}</h2>
+		</md-toolbar>
+
+    <div>
+      <button md-raised-button (click)="openDialog()">Open Dialog</button>
+      <p>Result from dialog: {{ result }}</p>
+    </div>
 	`
 })
 export class AppComponent  {
-	name = 'Angular';
+	name = 'Angular Material 2';
+	public result : any;
 
-	constructor(overlay: Overlay, vcRef: ViewContainerRef, public modal: Modal) {
-		overlay.defaultViewContainer = vcRef;
+	constructor(
+					private viewContainerRef: ViewContainerRef,
+					private dialogsService: DialogsService
+					) {
 	}
 
-	showBasic() {
-		this.modal.alert()
-				.size('lg')
-				.showClose(true)
-				.title('A simple Alert style modal window')
-				.body(`
-						<h4>Alert is a classic (title/body/footer) 1 button modal window that 
-						does not block.</h4>
-						<b>Configuration:</b>
-						<ul>
-							<li>Non blocking (click anywhere outside to dismiss)</li>
-							<li>Size large</li>
-							<li>Dismissed with default keyboard key (ESC)</li>
-							<li>Close wth button click</li>
-							<li>HTML content</li>
-						</ul>
-					`)
-				.open();
-  }
-
-	showModded() {
-		this.modal.alert()
-				.size('sm')
-				.isBlocking(true)
-				.showClose(true)
-				.title('A custom modal')
-				.body(`
-						<h4>Alert is a classic (title/body/footer) 1 button modal window that 
-						does not block.</h4>
-						<b>Configuration:</b>
-					`)
-				.open();
+	public openDialog() {
+		this.dialogsService
+					.confirm('Confirm Dialog', this.viewContainerRef)
+					.subscribe(res => this.result = res);
   }
 }
