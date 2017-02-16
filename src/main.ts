@@ -13,7 +13,6 @@ import { AppComponent } from './app/app.component';
 		MaterialModule.forRoot(),
 		DialogsModule,
 	],
-
 	declarations: [ AppComponent ],
 	bootstrap: [ AppComponent ],
 	providers: []

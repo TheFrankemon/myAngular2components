@@ -3,17 +3,8 @@ import { DialogsService } from './confirm-dialog/dialogs.service';
 
 @Component({
 	selector: 'my-app',
-	template: `
-		<md-toolbar color="primary">
-			<h2>Hello {{name}}</h2>
-		</md-toolbar>
-
-		<div>
-			<button md-raised-button (click)="openDialog()">Open Dialog</button>
-			<p>Result from dialog: {{ result }}</p>
-		</div>
-	`,
-	inputs: ["value"]
+	moduleId: module.id,
+	templateUrl: './app.component.html'
 })
 export class AppComponent  {
 	name = 'Angular Material 2';
