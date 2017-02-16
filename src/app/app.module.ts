@@ -7,7 +7,7 @@ import { AppComponent }  from './app.component';
 @NgModule({
   imports: [
     BrowserModule,
-    MaterialModule.forRoot(),
+    MaterialModule.forRoot()
   ],
   declarations: [ AppComponent ],
   bootstrap:    [ AppComponent ]

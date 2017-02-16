@@ -15,6 +15,6 @@ export class ConfirmDialog {
 	public title: string;
 
 	constructor(public dialogRef: MdDialogRef<ConfirmDialog>) {
-
+		
 	}
 }

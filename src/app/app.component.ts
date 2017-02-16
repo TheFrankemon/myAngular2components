@@ -12,7 +12,8 @@ import { DialogsService } from './confirm-dialog/dialogs.service';
 			<button md-raised-button (click)="openDialog()">Open Dialog</button>
 			<p>Result from dialog: {{ result }}</p>
 		</div>
-	`
+	`,
+	inputs: ["value"]
 })
 export class AppComponent  {
 	name = 'Angular Material 2';
@@ -24,7 +25,7 @@ export class AppComponent  {
 
 	public openDialog() {
 		this.dialogsService
-					.confirm('Loading...', this.viewContainerRef)
+					.confirm('Loading...', 5, this.viewContainerRef)
 					.subscribe(res => this.result = res);
 	}
 }
