@@ -11,22 +11,26 @@ export class AppComponent  {
 	name = 'Angular Material 2';
 	public result : any;
   mode = 'determinate';
-  value : number;
+	value : number;
 
 	constructor(private viewContainerRef: ViewContainerRef,	private dialogsService: DialogsService) {
-		this.value = Math.floor(Math.random() * 100);
-		console.log(this.value);
 	}
 
 	public openDialog() {
+		this.value = Math.floor(Math.random() * 50);
+		console.log(this.value);
+		//on an event, this calls the dialog to appear
 		this.dialogsService
-					.confirm('Loading...', 5, this.viewContainerRef)
+					.confirm('Loading...', this.viewContainerRef)
 					.subscribe(res => this.result = res);
 
-		let timer = Observable.timer(0, 1000);
+		//timer seems unstoppable :( be careful
+		var timer = Observable.timer(0, 1000);
 		timer.subscribe(x => {
-			if (x >= 10)
+			if (x >= this.value)
+				//on an event, this calls the dialog to close
 				this.dialogsService.callClose('closed by app');
+				timer = null;
 		});
 	}
 }

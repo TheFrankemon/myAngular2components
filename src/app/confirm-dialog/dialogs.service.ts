@@ -11,7 +11,7 @@ export class DialogsService {
 
 	}
 
-	public confirm(title: string, ttl: number, viewContainerRef: ViewContainerRef) : Observable<boolean> {
+	public confirm(title: string, viewContainerRef: ViewContainerRef) : Observable<boolean> {
 		let config = new MdDialogConfig();
 		config.viewContainerRef = viewContainerRef;
 		config.width = "60%";
