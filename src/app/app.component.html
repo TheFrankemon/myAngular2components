@@ -3,7 +3,6 @@
 </md-toolbar>
 <md-card>
 	<md-card-content>
-		<h2 class="example-h2">Result</h2>
 		<md-progress-bar color="accent" [mode]="mode" [value]="value"></md-progress-bar>
 	</md-card-content>
 </md-card>
@@ -11,3 +10,6 @@
 	<button md-raised-button (click)="openDialog()">Open Dialog</button>
 	<p>Result from dialog: {{ result }}</p>
 </div>
+<hr>
+<slider (onUpdate)="onUpdate($event)"></slider>
+<h1>{{bigValue}}</h1>

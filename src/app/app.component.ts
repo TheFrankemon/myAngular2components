@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Rx';
-import { Component, ViewContainerRef } from '@angular/core';
+import { Component, ViewContainerRef, Input } from '@angular/core';
 import { DialogsService } from './confirm-dialog/dialogs.service';
 
 @Component({
@@ -10,27 +10,27 @@ import { DialogsService } from './confirm-dialog/dialogs.service';
 export class AppComponent  {
 	name = 'Angular Material 2';
 	public result : any;
-  mode = 'determinate';
+	mode = 'determinate';
 	value : number;
+	bigValue = 50;
 
 	constructor(private viewContainerRef: ViewContainerRef,	private dialogsService: DialogsService) {
 	}
 
 	public openDialog() {
 		this.value = Math.floor(Math.random() * 50);
-		console.log(this.value);
 		//on an event, this calls the dialog to appear
 		this.dialogsService
 					.confirm('Loading...', this.viewContainerRef)
 					.subscribe(res => this.result = res);
 
-		//timer seems unstoppable :( be careful
-		var timer = Observable.timer(0, 1000);
-		timer.subscribe(x => {
-			if (x >= this.value)
-				//on an event, this calls the dialog to close
-				this.dialogsService.callClose('closed by app');
-				timer = null;
-		});
+		setTimeout(() => {
+			this.dialogsService.callClose('closed by app');
+			this.value = 0;
+		}, this.value*1000);
 	}
+
+	onUpdate(num: number) {
+    this.bigValue = num;
+  }
 }

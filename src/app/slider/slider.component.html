@@ -1,0 +1,24 @@
+<md-card>
+  <md-card-content>
+    <md-slider
+        [disabled]="disabled"
+        [max]="max"
+        [min]="min"
+        step=1
+        [thumb-label]="thumbLabel"
+        tick-interval=null
+        [ngModel]="value"
+        (ngModelChange)="update($event)">
+    </md-slider>
+    <md-slider class="rightSlider"
+        [disabled]="disabled"
+        [max]="max"
+        [min]="min"
+        step=10
+        [thumb-label]="thumbLabel"
+        tick-interval=1
+        [ngModel]="value"
+        (ngModelChange)="update($event)">
+    </md-slider>
+  </md-card-content>
+</md-card>

@@ -19,6 +19,10 @@ confirm-dialog > h1, confirm-dialog > md-progress-spinner {
 	margin: auto;
 }
 
-confirm-dialog > button {
+confirm-dialog > button, .rightSlider {
 	float: right;
+}
+
+md-slider {
+  width: 300px;
 }
