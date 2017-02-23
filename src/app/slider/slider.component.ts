@@ -15,10 +15,10 @@ export class Slider {
 	//step = 1;
 	thumbLabel = true;
 	value = 0;
+	steppedValue = 0;
 	@Output() onUpdate = new EventEmitter<number>();
 
 	update(newValue : number) {
-	  this.value = newValue;
-		this.onUpdate.emit(this.value);
+		this.onUpdate.emit(newValue);
 	}
 }
